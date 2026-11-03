@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Jie Chen — Global Markets, GTM Strategy and Growth Marketing.">
+  <title>Jie Chen | Global Markets & Growth</title>
+
+  <style>
+    :root {
+      --bg: #080d19;
+      --panel: #101a2d;
+      --text: #edf3ff;
+      --muted: #9aa9c2;
+      --blue: #63a5ff;
+      --purple: #a78bfa;
+      --border: rgba(148, 163, 184, 0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(72, 95, 180, 0.18), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1080px, 88%);
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 115px 0 100px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.1;
+      letter-spacing: -3px;
+      max-width: 850px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      max-width: 610px;
+      color: var(--muted);
+      margin: 28px 0;
+      font-size: 16px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 7px;
+      background: linear-gradient(100deg, #397ee8, #7857d9);
+      font-weight: 600;
+      font-size: 13px;
+      margin-right: 10px;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+
+    section {
+      padding: 70px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 32px;
+      letter-spacing: -1px;
+      margin-bottom: 32px;
+    }
+
+    .about-text {
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 6px 13px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: #b8c9e5;
+      font-size: 12px;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      background: linear-gradient(145deg, #121e33, #0c1424);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 27px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .project-card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project-type {
+      color: var(--purple);
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-top: 20px;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      border-left: 1px solid var(--border);
+      padding-left: 25px;
+      margin-left: 7px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 9px;
+      width: 11px;
+      height: 11px;
+      background: var(--blue);
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(99,165,255,0.5);
+    }
+
+    .timeline-item h3 {
+      font-size: 16px;
+    }
+
+    .timeline-item .meta {
+      color: var(--blue);
+      font-size: 12px;
+      margin: 5px 0;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-box {
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(120deg, #111e35, #17132e);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin: 12px 0 22px;
+    }
+
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 650px) {
+      .nav-links {
+        gap: 12px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding: 80px 0;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <nav>
+      <a class="logo" href="#">JC<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">Personal Portfolio / 2026</div>
+
+      <h1>
+        Exploring Global Markets.<br>
+        Building <span>Growth Strategies.</span>
+      </h1>
+
+      <p class="hero-description">
+        I am a postgraduate student at The University of Hong Kong,
+        interested in global markets, go-to-market strategy and
+        international business development.
+        I enjoy connecting market insights with practical business solutions.
+      </p>
+
+      <a href="#projects" class="button">Explore My Work ↗</a>
+      <a href="#about" class="button button-outline">About Me</a>
+    </header>
+
+    <section id="about">
+      <div class="section-label">01 / About</div>
+      <h2>About Me</h2>
+
+      <p class="about-text">
+        My academic background in China Development Studies has
+        shaped my understanding of economic geography, regional
+        development and global production networks.
+        I am particularly interested in how businesses identify
+        overseas opportunities, develop market-entry strategies
+        and build sustainable growth.
+      </p>
+
+      <div class="tag-list">
+        <span class="tag">Market Research</span>
+        <span class="tag">GTM Strategy</span>
+        <span class="tag">Growth Marketing</span>
+        <span class="tag">International Business</span>
+        <span class="tag">Consumer Insights</span>
+        <span class="tag">Cross-border E-commerce</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-label">02 / Selected Work</div>
+      <h2>Projects & Research</h2>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 01</div>
+          <h3>US Bluetooth Earbuds Market Entry</h3>
+          <p>
+            A market-entry research project exploring the US
+            wireless audio market, consumer segments, competitor
+            positioning and potential channel strategies.
+          </p>
+          <div class="project-type">Market Research / Strategy</div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 02</div>
+          <h3>TikTok Shop Growth Simulation</h3>
+          <p>
+            A simulated advertising project covering budget
+            allocation, creative testing, conversion metrics,
+            ROAS analysis and profitability.
+          </p>
+          <div class="project-type">Performance Marketing</div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 03</div>
+          <h3>Affiliate Marketing Strategy</h3>
+          <p>
+            A strategic framework for designing an affiliate
+            programme, including partner selection, commission
+            structures and performance measurement.
+          </p>
+          <div class="project-type">GTM / Growth Strategy</div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 04</div>
+          <h3>Guzhen Lighting Industry Research</h3>
+          <p>
+            An exploration of the evolution of a grassroots
+            industrial cluster, focusing on production networks,
+            local institutions and international market connections.
+          </p>
+          <div class="project-type">Industrial Research / Economic Geography</div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-label">03 / Background</div>
+      <h2>Education & Experience</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>The University of Hong Kong</h3>
+          <div class="meta">MA in China Development Studies</div>
+          <p>
+            Studying regional development, economic geography,
+            globalisation and China's development.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>East China Normal University</h3>
+          <div class="meta">Undergraduate Studies / Chinese Major</div>
+          <p>
+            Academic foundation in humanities, research and communication.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Zhongshan Daily Media Group</h3>
+          <div class="meta">Planning Assistant Intern | 2025</div>
+          <p>
+            Supported content planning and communication projects
+            in the education and sports sector.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Zhongshan Cultural Tourism Group</h3>
+          <div class="meta">Content Planning Project</div>
+          <p>
+            Contributed to cultural tourism content planning,
+            new media development and summer camp promotion.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-label">04 / Get in Touch</div>
+
+      <div class="contact-box">
+        <h2>Let's Connect.</h2>
+        <p>
+          Interested in global markets, international business
+          and growth opportunities. Always open to meaningful
+          conversations and collaborations.
+        </p>
+        <a href="mailto:YOUR_EMAIL@example.com" class="button">
+          Email Me ↗
+        </a>
+        <a href="https://www.linkedin.com/" class="button button-outline">
+          LinkedIn ↗
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Jie Chen. Built with GitHub Pages.
+    </footer>
+
+  </div>
+
+</body>
+</html>
